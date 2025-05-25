@@ -10,9 +10,7 @@ const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
 async function cleanAIResponse(content) {
   if (!content) return "";
-
   const match = content.match(/```(?:json)?\s*([\s\S]*?)\s*```/i);
-
   if (match && match[1]) {
     return match[1].trim();
   }
